@@ -14,47 +14,46 @@ class App extends Component {
     this.datosBusqueda = this.datosBusqueda.bind(this)
   }
   paginaAnterior = ()=>{
-    let pagina = this.state.pagina;
-    if( pagina===1 ) return null;
-    pagina -=1;
-    this.setState({pagina}, ()=>{
-      this.consultarApi();
-      this.scroll();
-    })
+    // let pagina = this.state.pagina;
+    // if( pagina===1 ) return null;
+    // pagina -=1;
+    // this.setState({pagina}, ()=>{
+    //   this.consultarApi();
+    //   this.scroll();
+    // })
   }
   paginaSiguiente = ()=>{
-    let pagina = this.state.pagina;
-    pagina +=1;
-    this.setState({pagina},()=>{
-      this.consultarApi();
-      this.scroll();
-    })
+    // let pagina = this.state.pagina;
+    // pagina +=1;
+    // this.setState({pagina},()=>{
+    //   this.consultarApi();
+    //   this.scroll();
+    // })
   }
   scroll = () =>{
-    const element = document.querySelector('.jumbotron');
-    element.scrollIntoView('smooth','start');
+    // const element = document.querySelector('.jumbotron');
+    // element.scrollIntoView('smooth','start');
   }
 
-   consultarApi = ()=>{
-     debugger
-    const url =`https://pixabay.com/api/?key=13709262-4243aa5d48c02bc3e0e8824c1&q=${this.state.termino}&per_page=8&page=${this.state.pagina}`;
-    console.log(url);
-    fetch(url)
-      .then(respuesta => respuesta.json())
-      .then(resultado => {
-        console.log(resultado.hits[0]);
-        this.setState({imagenes: resultado.hits})
-      } );
-  }
+  //  consultarApi = (termino,pagina)=>{
+  //    debugger
+  //   const url =`https://pixabay.com/api/?key=13709262-4243aa5d48c02bc3e0e8824c1&q=${termino}&per_page=8&page=${pagina}`;
+  //   console.log(url);
+  //   fetch(url)
+  //     .then(respuesta => respuesta.json())
+  //     .then(resultado => {
+  //       console.log(resultado.hits[0]);
+  //       this.setState({imagenes: resultado.hits})
+  //     } );
+  // }
  
   datosBusqueda (termino) {
-    console.log(this);
-   this.setState({
-    termino:termino,
-     pagina:1
-   },
-   ()=> this.consultarApi()
-   )
+  //  this.setState({
+  //   termino:termino,
+  //    pagina:1
+  //  }.bind(this),
+  //  ()=> this.consultarApi()
+  //  )
   }
   render() {
     return (
@@ -63,11 +62,11 @@ class App extends Component {
           <p className="lead text-center">Buscador de imágenes</p>
           <Buscador datosBusqueda={this.datosBusqueda} ></Buscador>
       </div>
-        <Resultado 
+        {/* <Resultado 
             imagenes={this.state.imagenes}
             paginaAnterior= {this.paginaAnterior}
             paginaSiguiente={this.paginaSiguiente}
-        ></Resultado>
+        ></Resultado> */}
       </div>
     );
   }
