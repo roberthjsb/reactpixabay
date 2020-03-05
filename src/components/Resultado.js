@@ -10,8 +10,8 @@ const Resultado =(props)=> {
                 { imagenes.map((imagen) =><Imagen key={imagen.id} imagen={imagen}/>)}
             </div>
             <Paginador
-                paginaAnterior= {this.props.paginaAnterior}
-                paginaSiguiente={this.props.paginaSiguiente}
+                // paginaAnterior= {this.props.paginaAnterior}
+                // paginaSiguiente={this.props.paginaSiguiente}
             ></Paginador>
         </React.Fragment>
         )
